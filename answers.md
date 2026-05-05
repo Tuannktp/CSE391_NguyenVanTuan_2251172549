@@ -268,4 +268,111 @@ Phiếu trả lời bài tập tuần 2
 
         minlength="8" → bắt buộc tối thiểu 8 ký tự
         "123" có độ dài 3 ký tự < 8 → vi phạm constraint.
-        
+        Sau khi chạy code thì đúng với kết quả dự đoán.
+
+        Câu A3:
+
+        1. <label for="email"> — Screen reader biết field gì
+            Không <label>: Screen reader chỉ đọc "Input field" (mù mờ)
+            Có <label>: Screen reader đọc "Email, input field" (rõ ràng)
+            Bonus: Người dùng có thể click label → focus input
+        2. <fieldset> + <legend> — Nhóm input liên quan
+            Dùng khi:
+
+            Nhóm địa chỉ, thanh toán, dịch vụ
+            Nhóm radio buttons, checkboxes
+            Lợi ích:
+
+            Screen reader đọc <legend> → hiểu bối cảnh
+            Dễ style CSS
+        3. aria-label — Dùng khi nào?
+            Dùng cho:
+
+            Button chỉ icon: <button aria-label="Tìm kiếm"></button>
+            Icon link: <a aria-label="Hồ sơ"></a>
+            KHÔNG dùng khi đã có <label>:
+            <!-- Dư thừa -->
+            <label for="email">Email:</label>
+            <input aria-label="Email">  <!-- Thừa -->
+
+        Câu A4:
+
+        1.
+        Cải thiện gì:
+
+        Tốc độ load trang: Chỉ load ảnh khi user scroll đến (không load hết ngay)
+        Tiết kiệm bandwidth: User không xem ảnh dưới → không tải dữ liệu
+        Core Web Vitals tốt: Google ưa trang load nhanh
+
+        KHÔNG nên dùng loading="lazy" khi:
+
+        Ảnh ở above the fold (hiển thị ngay khi load trang)
+        Ảnh quan trọng cho user experience (hero banner, product carousel)
+        User có kết nối 2G/3G chậm → chậm hơn khi scroll
+
+        2.
+        Tại vì: Mỗi browser/device hỗ trợ format khác nhau. Một format video duy nhất = một số user xem không được.
+        3 format video phổ biến:MP4,WebM,Ogg/Theora.
+
+        3.
+        Thuộc tính alt trên <img> dùng để:
+        Screen reader: Nói cho user mù/khiếm thị biết ảnh gì
+        Ảnh lỗi: Hiển thị text thay vì ảnh trắng
+        SEO: Google hiểu nội dung ảnh
+            3 alt tốt cho 3 trường hợp.
+
+            <img src="iphone.jpg" alt="iPhone 16 Pro Max màu titan tự nhiên, góc phải 45 độ">
+
+            <img src="divider.png" alt="" role="presentation">
+
+            <img src="chart.jpg" alt="Biểu đồ doanh thu Q1/2026: Tháng 1 đạt 500 triệu, Tháng 2 đạt 650 triệu, Tháng 3 đạt 800 triệu">
+
+        Câu A5:
+         <img> vs <figure> + <figcaption> — Khi nào nên dùng:   
+            Cách 1: <img> đơn thuần — Khi nào dùng? 
+            Dùng khi:
+
+            Ảnh không cần caption hoặc caption ở ngoài
+            Ảnh là phần tử độc lập, không liên kết với text mô tả
+            Ảnh inline trong bài viết (không cần "tham chiếu" gì)
+            Ví dụ 1: Avatar/Icon trong comment
+            <div class="comment">
+                <img src="avatar.jpg" alt="Avatar người dùng Nguyễn Minh" 
+                    width="48" height="48">
+                <p>Nguyễn Minh: "Sản phẩm tốt lắm!"</p>
+            </div>
+            Ví dụ 2: Logo trong header:
+            <header>
+                <img src="logo.png" alt="Logo Shopee" width="100">
+                <nav>...</nav>
+            </header>
+
+            Cách 2: <figure> + <figcaption> — Khi nào dùng?
+            Dùng khi:
+
+            Ảnh có caption mô tả quan trọng
+            Ảnh là referenced content (tham chiếu, minh họa)
+            Ảnh + caption cần grouped lại (semantic HTML5)
+            Ảnh cần 'figure out' (hiểu rõ) — câu chuyện hoàn chỉnh
+
+            Ví dụ 1: Sản phẩm + Giá (e-commerce)
+            <figure>
+                <img src="iphone16.jpg" 
+                    alt="iPhone 16 Pro Max 256GB màu titan tự nhiên" 
+                    width="600" height="600">
+                <figcaption>iPhone 16 Pro Max — 25.990.000đ — 🌟 Bán chạy</figcaption>
+            </figure>
+
+            Ví dụ 2: Biểu đồ + Giải thích
+            <figure>
+                <img src="revenue-chart.jpg" 
+                    alt="Biểu đồ doanh thu Q1/2026"
+                    width="600" height="400">
+                <figcaption>
+                    <strong>Hình 1:</strong> Doanh thu tăng 60% từ tháng 1 đến tháng 3, 
+                    chủ yếu từ bán hàng online
+                </figcaption>
+            </figure>
+
+            <!-- Screen reader: "Figure: Biểu đồ doanh thu... Caption: Doanh thu tăng 60%..."
+                → Ảnh + giải thích là một thể hoàn chỉnh (tham chiếu trong báo cáo) -->
