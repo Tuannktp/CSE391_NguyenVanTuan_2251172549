@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán đơn hàng - TLU Store</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; text-transform: uppercase; }
+        h2 { color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 8px; margin-top: 0; }
+        
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #f8f9fa; color: #2c3e50; }
+        tfoot { font-weight: bold; background-color: #ebf5fb; }
+
+        /* Form Styling */
+        fieldset { border: 1px solid #dcdde1; padding: 20px; margin-bottom: 25px; border-radius: 8px; }
+        legend { font-weight: bold; padding: 0 10px; color: #2c3e50; font-size: 1.1em; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: 500; }
+        
+        input[type="text"], input[type="date"], select, textarea { 
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; 
+        }
+
+        .option-group { display: flex; flex-direction: column; gap: 10px; background: #fafafa; padding: 15px; border-radius: 5px; border: 1px solid #eee; }
+        .option-item { display: flex; align-items: center; cursor: pointer; }
+        .option-item input { margin-right: 10px; width: auto; }
+
+        .btn-submit { 
+            background-color: #27ae60; color: white; padding: 15px; border: none; 
+            border-radius: 6px; cursor: pointer; font-size: 1.2em; font-weight: bold; 
+            width: 100%; transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: #219150; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Xác nhận đặt hàng</h1>
+
+    <!-- Phần 1: Giỏ hàng sử dụng Table -->
+    <section>
+        <h2>1. Đơn hàng của bạn</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>iPhone 16 Pro Max</td>
+                    <td>34.990.000đ</td>
+                    <td>1</td>
+                    <td>34.990.000đ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ốp lưng MagSafe</td>
+                    <td>1.290.000đ</td>
+                    <td>2</td>
+                    <td>2.580.000đ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Củ sạc nhanh 20W</td>
+                    <td>590.000đ</td>
+                    <td>1</td>
+                    <td>590.000đ</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right;">Tổng tiền thanh toán:</td>
+                    <td style="color: #e74c3c; font-size: 1.2em;">38.160.000đ</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <!-- Form chính -->
+    <form action="#" method="POST">
+        
+        <!-- Phần 2: Phương thức thanh toán & Ưu đãi -->
+        <fieldset>
+            <legend>Thanh toán & Ưu đãi</legend>
+            
+            <div class="form-group">
+                <label>Phương thức thanh toán:</label>
+                <div class="option-group">
+                    <label class="option-item">
+                        <input type="radio" name="payment" value="cod" checked> COD (Giao hàng thu tiền)
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="payment" value="bank"> Chuyển khoản ngân hàng
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="payment" value="wallet"> Ví điện tử (Momo/ZaloPay)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="coupon">Mã giảm giá (Nếu có):</label>
+                <input type="text" id="coupon" name="coupon" 
+                       pattern="SALE[0-9]{4}" 
+                       placeholder="Nhập mã dạng SALE2026" 
+                       title="Mã giảm giá phải có định dạng SALE + 4 chữ số">
+            </div>
+
+            <div class="form-group">
+                <label for="note">Ghi chú giao hàng:</label>
+                <textarea id="note" name="note" rows="3" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi đến..."></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Phần 3: Thông tin giao hàng -->
+        <fieldset>
+            <legend>Thông tin vận chuyển</legend>
+            
+            <div class="form-group">
+                <label for="delivery_date">Ngày giao hàng mong muốn:</label>
+                <input type="date" id="delivery_date" name="delivery_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="delivery_time">Khung giờ nhận hàng:</label>
+                <select id="delivery_time" name="delivery_time">
+                    <option value="morning">Sáng (8h - 12h)</option>
+                    <option value="afternoon">Chiều (14h - 18h)</option>
+                    <option value="evening">Tối (18h - 21h)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Lựa chọn tốc độ giao hàng:</label>
+                <div class="option-group">
+                    <label class="option-item">
+                        <input type="radio" name="speed" value="1" required> 
+                        <b>Hỏa tốc (1 ngày)</b> - Phụ phí 50.000đ
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="speed" value="3" checked> 
+                        <b>Giao nhanh (3 ngày)</b> - Mặc định
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="speed" value="7"> 
+                        <b>Tiết kiệm (7 ngày)</b> - Miễn phí vận chuyển
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Nút Submit hỗ trợ Accessibility -->
+        <button type="submit" class="btn-submit" aria-label="Xác nhận đặt hàng">XÁC NHẬN ĐẶT HÀNG</button>
+        
+    </form>
+</div>
+
+<script>
+    // Logic tự động chặn chọn ngày hôm nay hoặc quá khứ
+    const dateInput = document.getElementById('delivery_date');
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const minDate = tomorrow.toISOString().split('T')[0];
+    dateInput.setAttribute('min', minDate);
+</script>
+
+</body>
+</html>
