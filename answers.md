@@ -197,7 +197,11 @@ Phần A:
         Trình duyệt sẽ hiểu ngay đây là một danh sách có thứ tự và đang ở trang nào. Điều này giúp cấu trúc DOM sạch sẽ và cực kỳ dễ bảo trì.Tất nhiên, mình không cực đoan đến mức bài trừ <div>. Thực tế, <div> vẫn là "vua" trong các trường hợp phục vụ mục đích trình bày (styling). Khi mình cần tạo một lớp bao (wrapper) để căn giữa nội dung bằng Flexbox hoặc tạo một khối trang trí không mang ý nghĩa nội dung, thì <div> chính là lựa chọn phù hợp nhất vì nó trung lập.   
 
 
-Phiếu trả lời bài tập tuần 2
+
+
+                                       Phiếu trả lời bài tập tuần 2
+
+
     Phần A:Kiểm tra đọc hiểu 
 
         Câu A1:10 input types khác nhau trong HTML5:       
@@ -376,3 +380,65 @@ Phiếu trả lời bài tập tuần 2
 
             <!-- Screen reader: "Figure: Biểu đồ doanh thu... Caption: Doanh thu tăng 60%..."
                 → Ảnh + giải thích là một thể hoàn chỉnh (tham chiếu trong báo cáo) -->
+        Phần C:Phân tích và suy luận
+
+        Câu C1:
+
+            Lỗi 1: Dòng 2 — Input "Tên" không có <label for="..."> và thiếu id, name, required
+            Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+            Lỗi 2: Dòng 4 — Input "Email" không có <label> liên kết, thiếu id, name, required (placeholder không thay thế label)
+            Sửa: <label for="email">Email của bạn:</label> <input type="email" id="email" name="email" required>
+
+            Lỗi 3: Dòng 6 — Input "Mật khẩu" không có <label>, thiếu id, name, required
+            Sửa: <label for="password">Mật khẩu:</label> <input type="password" id="password" name="password" required>
+
+            Lỗi 4: Dòng 7 — Input "Nhập lại mật khẩu" không có <label>, thiếu id, name, required
+            Sửa: <label for="confirm_password">Nhập lại mật khẩu:</label> <input type="password" id="confirm_password" name="confirm_password" required>
+
+            Lỗi 5: Dòng 9 — Input "Phone" dùng type="text" thay vì type="tel", không có <label>, thiếu id, name, dùng value làm placeholder
+            Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" placeholder="0901234567" required>
+
+            Lỗi 6: Dòng 11 — <select> không có <label>, thiếu id, name, required, thiếu default option
+            Sửa: <label for="city">Thành phố:</label>
+            <select id="city" name="city" required>
+                <option value="">-- Chọn thành phố --</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="hcm">TP.HCM</option>
+            </select>
+
+            Lỗi 7: Dòng 17 — <label> không có checkbox input, không có for attribute
+            Sửa: <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Tôi đồng ý điều khoản</label>
+
+            Lỗi 8: Dòng 1 — <form> thiếu method, action, và không có novalidate hoặc enctype (tuỳ mục đích)
+            Sửa: <form method="POST" action="/submit" novalidate>
+                 ...
+                </form>
+        
+        Câu C2:
+
+        pattern regex cho CMND/CCCD và Số tài khoản:
+        CMND/CCCD (12 chữ số):^\d{12}$
+        ^ = bắt đầu chuỗi
+        \d{12} = đúng 12 chữ số
+        $ = kết thúc chuỗi
+        Số tài khoản (10-15 chữ số):^\d{10,15}$
+        \d{10,15} = từ 10 đến 15 chữ số
+
+        HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+        Vấn đề và giải thích
+        Client-side dễ bypass->	Người dùng có thể tắt JavaScript hoặc inspect element để xóa required, pattern
+        Chỉ kiểm tra format->Không thể xác nhận CMND/CCCD có tồn tại, số tài khoản có đúng chủ người không
+        Không bảo mật->	Các thông tin nhạy cảm (PIN, tài khoản) được xử lý trên client
+        Không ghi log, audit	->Không có track record về yêu cầu từ phía server
+        Man-in-the-middle	->Nếu không dùng HTTPS, dữ liệu có thể bị chặn
+
+        Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript):
+        Loại 1: Kiểm tra dữ liệu tồn tại trong Database
+        Loại 2: Validation phức tạp giữa các field (Cross-field validation)
+        Loại 3: Kiểm tra logic nghiệp vụ (Business Logic)
+
+        Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend:
+        Rủi ro 1: SQL Injection & Code Injection
+        Rủi ro 2: Bypass Quy Tắc Kinh Doanh & Gian Lận
