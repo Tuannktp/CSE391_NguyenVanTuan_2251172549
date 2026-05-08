@@ -3,85 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu Sản phẩm Multimedia</title>
+    <title>Trang Sản Phẩm Multimedia</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 900px; margin: auto; background-color: #f4f4f4; }
-        section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { border-bottom: 2px solid #333; padding-bottom: 10px; color: #333; }
-        .gallery { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        /* Style cho ảnh responsive theo yêu cầu */
-        img { max-width: 100%; height: auto; border-radius: 4px; display: block; }
-        figure { margin: 0; width: 280px; text-align: center; background: #eee; padding: 10px; border-radius: 5px; }
-        figcaption { margin-top: 8px; font-style: italic; font-size: 0.9em; color: #555; }
-        .video-container { text-align: center; }
-        iframe { border-radius: 8px; width: 100%; max-width: 560px; height: 315px; }
-        video, audio { width: 100%; max-width: 600px; margin-top: 10px; }
+        /* Style đơn giản nhất cho sinh viên mới học */
+        body {
+            background-color: lightgray; /* Màu nền xám nhạt cho cả trang */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header {
+            background-color: darkblue; /* Màu xanh đậm cho nổi bật */
+            color: white; /* Chữ trắng */
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            background-color: white; /* Khung trắng cho nội dung */
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid black; /* Viền đen đơn giản */
+        }
+
+        h2 {
+            color: darkblue;
+            text-decoration: underline; /* Gạch chân tiêu đề */
+        }
+
+        img {
+            width: 300px; /* Cố định kích thước ảnh cho dễ quản lý */
+            border: 2px solid gray;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
 
-    <header style="text-align: center; margin-bottom: 30px;">
-        <!-- Nhúng SVG Inline: Logo hình tròn đơn giản -->
-        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" stroke="navy" stroke-width="3" fill="skyblue" />
-            <text x="50%" y="55%" text-anchor="middle" fill="navy" font-size="20px" font-family="Arial" dy=".3em">TLU</text>
-        </svg>
+    <header>
         <h1>Showroom Công Nghệ TLU</h1>
     </header>
 
-    <!-- 1. Hình ảnh sản phẩm -->
     <section>
         <h2>Bộ sưu tập sản phẩm</h2>
-        <div class="gallery">
-            <figure>
-                <img src="https://picsum.photos/id/1/400/300" alt="Laptop văn phòng mỏng nhẹ màu bạc" loading="lazy">
-                <figcaption>Laptop Pro - Hiệu năng đỉnh cao</figcaption>
-            </figure>
-            <figure>
-                <img src="https://picsum.photos/id/160/400/300" alt="Điện thoại thông minh màn hình tràn viền" loading="lazy">
-                <figcaption>Smartphone X - Chụp ảnh xuyên đêm</figcaption>
-            </figure>
-            <figure>
-                <img src="https://picsum.photos/id/201/400/300" alt="Máy ảnh cơ chuyên nghiệp màu đen" loading="lazy">
-                <figcaption>Camera Z - Lưu giữ mọi khoảnh khắc</figcaption>
-            </figure>
-        </div>
+        
+        <figure>
+            <img src="https://picsum.photos/id/1/300/200" alt="Laptop">
+            <figcaption>Laptop Pro - Hiệu năng đỉnh cao</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://picsum.photos/id/160/300/200" alt="Smartphone">
+            <figcaption>Smartphone X - Chụp ảnh đẹp</figcaption>
+        </figure>
     </section>
 
-    <!-- 2. Video nhúng YouTube -->
-    <section class="video-container">
-        <h2>Video giới thiệu từ YouTube</h2>
+    <section>
+        <h2>Video giới thiệu YouTube</h2>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                width="560" height="315" 
+                style="border: 0;"
+                title="Video san pham">
         </iframe>
     </section>
 
-    <!-- 3. Thẻ Video nội bộ -->
     <section>
         <h2>Video Review trực tiếp</h2>
-        <video controls poster="https://via.placeholder.com/600x340?text=Bam+vao+de+xem+video">
+        <video width="400" controls>
             <source src="movie.mp4" type="video/mp4">
-            <source src="movie.webm" type="video/webm">
-            Trình duyệt của bạn không hỗ trợ thẻ video này.
+            Trình duyệt không hỗ trợ video.
         </video>
     </section>
 
-    <!-- 4. Thẻ Audio -->
+    <section>
+        <h2>Đăng ký thông tin</h2>
+        <form action="#">
+            <p>
+                <label for="hoten">Họ và tên:</label>
+                <input type="text" id="hoten" name="hoten">
+            </p>
+            <p>
+                <label for="dob">Ngày sinh:</label>
+                <input type="date" id="dob" name="dob">
+            </p>
+            <input type="submit" value="Gửi thông tin">
+        </form>
+    </section>
+
     <section>
         <h2>Nhạc nền giới thiệu</h2>
-        <p>Thưởng thức giai điệu nhẹ nhàng khi tìm hiểu sản phẩm:</p>
         <audio controls>
             <source src="background-music.mp3" type="audio/mpeg">
-            <source src="background-music.ogg" type="audio/ogg">
-            Trình duyệt của bạn không hỗ trợ thẻ âm thanh này.
+            Trình duyệt không hỗ trợ audio.
         </audio>
     </section>
 
-    <footer style="text-align: center; margin-top: 40px; color: #888;">
-        <p>&copy; 2026 Trang web thực tập Multimedia</p>
+    <footer>
+        <p>&copy; 2026 - Bài tập Web tuần 1 - Sinh viên TLU</p>
     </footer>
 
 </body>
