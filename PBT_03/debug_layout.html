@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Layout</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+    <h1>🔧 Debug Layout - Float Bị Vỡ vs Fix</h1>
+
+    <!-- ❌ BROKEN -->
+    <h2>❌ Layout Bị Vỡ (Content-Box)</h2>
+    <p>Sidebar: 300px + padding 20px = 342px thực tế</p>
+    <p>Content: 660px + padding 30px = 722px thực tế</p>
+    <p><strong style="color: red;">Total = 1064px > 960px → VỠ!</strong></p>
+
+    <div class="container broken">
+        <div class="sidebar broken">
+            <h3>Sidebar (342px)</h3>
+            <p>300px + 20px padding</p>
+        </div>
+        <div class="content broken">
+            <h3>Content (722px)</h3>
+            <p>660px + 30px padding</p>
+            <p style="color: red;">← BỊ ĐẨY XUỐNG!</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <hr>
+
+    <!-- ✅ FIX #1: BORDER-BOX -->
+    <h2>✅ Fix #1: Dùng Border-Box (RECOMMENDED)</h2>
+    <p>Thêm: <code>* { box-sizing: border-box; }</code></p>
+    <p><strong style="color: green;">Total = 300 + 660 = 960px ✅</strong></p>
+
+    <div class="container fix-borderbox">
+        <div class="sidebar fix-borderbox">
+            <h3>Sidebar (300px)</h3>
+            <p>Width bao gồm padding</p>
+        </div>
+        <div class="content fix-borderbox">
+            <h3>Content (660px)</h3>
+            <p>Width bao gồm padding</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <hr>
+
+    <!-- ✅ FIX #2: RECALC -->
+    <h2>✅ Fix #2: Tính Toán Lại Width (Không Border-Box)</h2>
+    <p>Sidebar width = 278px (300 - 40 - 2)</p>
+    <p>Content width = 598px (660 - 60 - 2)</p>
+    <p><strong style="color: green;">Total = 320 + 640 = 960px ✅</strong></p>
+
+    <div class="container fix-recalc">
+        <div class="sidebar fix-recalc">
+            <h3>Sidebar (300px)</h3>
+            <p>Width: 278px</p>
+        </div>
+        <div class="content fix-recalc">
+            <h3>Content (660px)</h3>
+            <p>Width: 598px</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</body>
+</html>
