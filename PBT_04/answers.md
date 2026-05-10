@@ -32,4 +32,10 @@ Phần A:
         .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         /* 7 items → Bố cục = PBT_04/screenshots/th5.jpg
 
-        
+    Phần C:
+
+       1. Navbar ngang	Flexbox	Căn chỉnh các phần tử trên 1 chiều (ngang) và giãn cách đều cực nhanh.
+       2. Lưới ảnh Instagram	Grid	Quản lý 2 chiều (hàng & cột) hoàn hảo, giữ các ô luôn đều nhau.
+       3. Layout Blog	Grid	Phân chia khung lớn (Main/Sidebar) rõ ràng, chuẩn xác theo tỷ lệ.
+       4. Footer 4 cột	Flexbox	Linh hoạt cho các cột có độ dài chữ khác nhau, tự co giãn theo nội dung.
+       5. Card sản phẩm	Kết hợp	Grid để xếp các Card thành hàng; Flexbox bên trong để đẩy nút xuống đáy.
