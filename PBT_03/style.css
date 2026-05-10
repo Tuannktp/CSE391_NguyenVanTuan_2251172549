@@ -1,0 +1,243 @@
+/* CSS Reset - Dòng đầu tiên LUÔN LUÔN */
+* {
+    box-sizing: border-box;
+}
+
+/* ========== BODY ========== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* ========== NAVIGATION ========== */
+/* Element selector */
+nav {
+    background-color: #555;
+    padding: 0;
+}
+
+/* Descendant combinator */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Child combinator */
+nav > ul > li {
+    margin: 0;
+}
+
+/* Descendant combinator + Element selector */
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+/* Pseudo-class: hover */
+nav a:hover {
+    background-color: #667eea;
+    text-decoration: underline;
+    color: #fff;
+}
+
+/* Class selector */
+nav a.active {
+    background-color: #667eea;
+    font-weight: bold;
+    border-bottom: 3px solid #ffeb3b;
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ========== SECTION ========== */
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* ========== ARTICLE ========== */
+article {
+    padding: 15px;
+}
+
+article p {
+    font-size: 16px;
+}
+
+/* ========== FIGURE ========== */
+figure {
+    text-align: center;
+    margin: 20px 0;
+}
+
+figcaption {
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* ========== TABLE ========== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Element selector - thead */
+thead {
+    background-color: #333;
+}
+
+/* Element selector - th */
+th {
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Element selector - td */
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Pseudo-class: nth-child (Zebra striping) */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Pseudo-class: hover */
+tbody tr:hover {
+    background-color: #ffe6e6;
+    cursor: pointer;
+}
+
+/* Element selector - tfoot */
+tfoot {
+    background-color: #f2f2f2;
+    font-style: italic;
+    color: #666;
+}
+
+tfoot td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+/* ========== ASIDE (SIDEBAR) ========== */
+/* ID selector */
+#lien-he {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-left: 4px solid #667eea;
+    margin: 30px auto;
+    max-width: 1000px;
+    border-radius: 4px;
+}
+
+aside h3 {
+    color: #667eea;
+    margin-top: 0;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+aside li:last-child {
+    border-bottom: none;
+}
+
+/* ========== HR ========== */
+hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 30px 0;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #333;
+    color: #bbb;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selector Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Highlight classes - Bật một cái để kiểm tra */
+        .test-1 h1 {
+            background-color: yellow;
+        }
+
+        .test-2 .price {
+            background-color: yellow;
+        }
+
+        .test-3 #app header {
+            border: 3px solid red;
+        }
+
+        .test-4 nav a:first-child {
+            background-color: yellow;
+        }
+
+        .test-5 .product.featured h2 {
+            background-color: yellow;
+        }
+
+        .test-6 article > p {
+            background-color: yellow;
+        }
+
+        .test-7 a[href="/"] {
+            background-color: yellow;
+        }
+
+        .test-8 .top-bar.dark h1 {
+            background-color: yellow;
+        }
+
+        /* Basic styling */
+        .top-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            display: inline-block;
+        }
+
+        nav {
+            display: inline-block;
+            margin-left: 50px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .price {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selector Test</h1>
+    <p>Hãy thay đổi class của #app để highlight từng selector:</p>
+    <p><strong>Ví dụ:</strong> Bỏ test-1 để highlight "h1", bỏ test-2 để highlight ".price"</p>
+
+    <!-- Thay đổi class này để test từng selector -->
+    <div id="app" class="test-8">
+        <header class="top-bar dark">
+            <h1>ShopTLU</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/products">Products</a>
+                <a href="/about">About</a>
+            </nav>
+        </header>
+        <main>
+            <article class="product">
+                <h2>iPhone 16</h2>
+                <p class="price">25.990.000đ</p>
+                <p>Mô tả sản phẩm...</p>
+            </article>
+            <article class="product featured">
+                <h2>MacBook Pro</h2>
+                <p class="price">45.990.000đ</p>
+                <p>Mô tả sản phẩm...</p>
+            </article>
+        </main>
+    </div>
+
+    <hr>
+    <h2>Đáp án:</h2>
+    <p><strong>1. h1</strong> → ShopTLU</p>
+    <p><strong>2. .price</strong> → 25.990.000đ, 45.990.000đ (2 cái)</p>
+    <p><strong>3. #app header</strong> → header có class="top-bar dark"</p>
+    <p><strong>4. nav a:first-child</strong> → Home</p>
+    <p><strong>5. .product.featured h2</strong> → MacBook Pro</p>
+    <p><strong>6. article > p</strong> → tất cả p con trực tiếp của article (4 cái)</p>
+    <p><strong>7. a[href="/"]</strong> → Home</p>
+    <p><strong>8. .top-bar.dark h1</strong> → ShopTLU</p>
+</body>
+</html>
