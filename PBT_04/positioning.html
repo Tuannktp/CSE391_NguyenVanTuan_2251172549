@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành CSS Positioning - TLU</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <header class="header-fixed">
+        <div class="header-container">
+            <div class="logo">TLU STORE</div>
+            <nav class="nav-links">
+                <a href="#">Trang chủ</a>
+                <a href="#">Sản phẩm</a>
+                <a href="#">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar-sticky">
+            <h3>Danh mục</h3>
+            <ul>
+                <li>Laptop Gaming</li>
+                <li>Phụ kiện PC</li>
+                <li>Màn hình</li>
+                <li>Bàn phím cơ</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2>Sản phẩm nổi bật</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <img src="https://picsum.photos/id/1/200/150" alt="Product">
+                    <div class="product-info">
+                        <h4>MacBook M3 Pro</h4>
+                        <p>45.000.000đ</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <img src="https://picsum.photos/id/2/200/150" alt="Product">
+                    <div class="product-info">
+                        <h4>Dell XPS 13</h4>
+                        <p>32.000.000đ</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" style="height: 300px; background: #eee; display: flex; align-items: center; justify-content: center;">Scroll để xem hiệu ứng</div>
+                <div class="product-card" style="height: 300px; background: #eee; display: flex; align-items: center; justify-content: center;">Scroll tiếp...</div>
+                <div class="product-card" style="height: 300px; background: #eee; display: flex; align-items: center; justify-content: center;">Scroll tiếp...</div>
+            </div>
+        </main>
+    </div>
+
+    <button class="scroll-to-top" aria-label="Lên đầu trang" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </button>
+
+</body>
+</html>
