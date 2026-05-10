@@ -1,0 +1,78 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; padding: 10px; }
+
+/* Layout chính dùng CSS Grid */
+.grid-container {
+    display: grid;
+    /* Cấu trúc: Sidebar(200px) | Content(tự giãn) | Ads(200px) */
+    grid-template-columns: 200px 1fr 200px;
+    /* Định nghĩa các vùng dựa trên sơ đồ image_ddbdde.png */
+    grid-template-areas: 
+        "header header header"
+        "hero   hero   hero"
+        "sidebar main   ads"
+        "footer  footer footer";
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Định vị các vùng vào đúng Area */
+.header { grid-area: header; background: #2c3e50; color: white; padding: 20px; display: flex; justify-content: space-between; }
+.hero { grid-area: hero; background: #3498db; color: white; padding: 40px; text-align: center; border-radius: 8px; }
+.sidebar { grid-area: sidebar; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+.main-content { grid-area: main; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+.ads { grid-area: ads; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+.footer { grid-area: footer; background: #2c3e50; color: white; padding: 20px; text-align: center; }
+
+/* Filter Checkboxes */
+.filter-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+.filter-group label { cursor: pointer; font-size: 14px; }
+
+/* Grid con cho Product Cards (3 cột) */
+.product-grid {
+    display: grid;
+    /* Dùng minmax để đảm bảo card không bị quá nhỏ khi resize */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: #ecf0f1;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #bdc3c7;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Ads Placeholder */
+.ads-banner {
+    background: #e67e22;
+    color: white;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Responsive cho màn hình nhỏ (Dưới 900px) */
+@media (max-width: 900px) {
+    .grid-container {
+        /* Chuyển về 1 cột khi màn hình hẹp */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "hero"
+            "main"
+            "sidebar"
+            "ads"
+            "footer";
+    }
+}
