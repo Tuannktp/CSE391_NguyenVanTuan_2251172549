@@ -271,3 +271,69 @@ PHẦN A — KIỂM TRA ĐỌC HIỂU
 
         CSS Cascade Rule:"Later rules override earlier rules" CHỈ  khi specificity BẰNG NHAU
 
+    Phần C:
+       
+        TÍNH CHIỀU RỘNG THỰC TẾ
+
+        Sidebar:
+
+        width: 300px + padding: 20px×2 = 300 + 40 = 340px
+        + border: 1px×2 = 2px
+        = 342px 
+
+        Content
+
+        width: 660px + padding: 30px×2 = 660 + 60 = 720px
+        + border: 1px×2 = 2px
+        = 722px 
+
+        **Total: 342 + 722 = 1064px > 960px → VỠ!**
+
+        TẠI SAO VỠ
+
+        Content-Box (mặc định):
+        - width = chỉ content, KHÔNG bao gồm padding + border
+        - padding & border PHỈ RA NGOÀI
+        - 342 + 722 = 1064px > 960px
+        - Content bị đẩy xuống
+
+        2 CÁCH SỬA
+
+        Fix #1: Border-Box (RECOMMENDED)
+        * {
+            box-sizing: border-box;
+        }
+
+        .sidebar { width: 300px; padding: 20px; }
+        .content { width: 660px; padding: 30px; }
+
+        /* Kết quả: 300 + 660 = 960px ✅ */
+
+        Ưu điểm:
+        - Dễ tính (width = chiều rộng thực tế)
+        - Chuẩn hiện đại
+
+        Fix #2: Recalculate Width
+        .sidebar { width: 278px; padding: 20px; }  /* 300 - 40 - 2 */
+        .content { width: 598px; padding: 30px; }  /* 660 - 60 - 2 */
+
+        /* Kết quả: (278+40+2) + (598+60+2) = 960px ✅ */
+
+        Nhược điểm:
+        - Khó tính
+        - Cũ rồi
+
+        KẾT LUẬN
+
+        Mỗi CSS file nên bắt đầu với:
+        * {
+            box-sizing: border-box;
+        }
+
+        Câu C2:
+        1."Sản phẩm A" (h2) có font-size = 20px và color = green
+        2."Mô tả sản phẩm" (p trong card featured) có color = blue (Inheritance)
+        3."Sản phẩm B" (h2) có font-size = 20px và color = blue (Inheritance)
+        4."Mô tả sản phẩm B" (p.highlight) có color = green (từ !important) 
+
+
