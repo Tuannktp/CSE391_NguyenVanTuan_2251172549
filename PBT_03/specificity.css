@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+section {
+    margin: 30px 0;
+}
+
+.demo-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.note {
+    color: #666;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* ========== TABLE ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+thead {
+    background-color: #333;
+}
+
+th {
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #333;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========== INSTRUCTIONS ========== */
+.instructions {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-left: 4px solid #2563eb;
+    border-radius: 4px;
+}
+
+.instructions ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.instructions li {
+    margin: 8px 0;
+}
+
+/* ========== EXPERIMENT ========== */
+.experiment {
+    background-color: #fff3cd;
+    padding: 20px;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
+}
+
+.experiment ul {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.experiment li {
+    margin: 8px 0;
+}
+
+/* ========== 10 SPECIFICITY RULES - TỪ THẤP ĐẾN CAO ========== */
+
+/* RULE 1: Element selector - Specificity (0, 0, 1) */
+p {
+    color: #e74c3c;
+}
+
+/* RULE 2: Single class selector - Specificity (0, 1, 0) */
+.text {
+    color: #3498db;
+}
+
+/* RULE 3: Single class selector (same level as rule 2) - Specificity (0, 1, 0) */
+.highlight {
+    color: #2ecc71;
+}
+
+/* RULE 4: Element + class - Specificity (0, 1, 1) */
+p.text {
+    color: #f39c12;
+}
+
+/* RULE 5: Two classes - Specificity (0, 2, 0) */
+.text.highlight {
+    color: #9b59b6;
+}
+
+/* RULE 6: Element + two classes - Specificity (0, 2, 1) */
+p.text.highlight {
+    color: #e91e63;
+}
+
+/* RULE 7: Attribute selector + element - Specificity (0, 1, 1) */
+p[class~="text"] {
+    color: #795548;
+}
+
+/* RULE 8: Pseudo-class + element - Specificity (0, 1, 1) */
+p:first-child {
+    color: #ffc107;
+}
+
+/* RULE 9: ID + class - Specificity (1, 1, 1) */
+#demo.text {
+    color: #00bcd4;
+}
+
+/* RULE 10: ID selector - Specificity (1, 0, 0) - THẮNG! */
+#demo {
+    color: #c2185b;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    code {
+        font-size: 12px;
+    }
+}

@@ -206,3 +206,68 @@ PHẦN A — KIỂM TRA ĐỌC HIỂU
         → Element sẽ là MÀU ĐEN (Rule A + !important thắng)
         !important lấy độ ưu tiên HIGHEST, bỏ qua mọi quy tắc specificity
 
+        Phần B:
+        Liệt kê các selector đã sử dụng
+        SELECTOR ĐƯỢC SỬ DỤNG
+        Loại	            Số lần	Ví dụ
+        Universal	        1	    *
+        Element	            15+	    body, header, table, footer, ...
+        Class	            1	    .active
+        ID	                1	    #lien-he
+        Descendant	        15+	    header h1, nav a, section h2, ...
+        Child	            1	    nav > ul > li
+        Attribute	        4+	    img[alt], a[href*="tlu"]
+        Pseudo-class	    8+	    :hover, :nth-child, :first-child, :last-child, :focus, :active
+        Pseudo-element	    5+	    ::before, ::after
+        Grouping	        2	    h1, h2, h3
+        Media Query	        1	    @media (max-width: 600px)
+
+    Phần C:
+        Hộp 1 (content-box): chiều rộng thực tế = 602.025 + 40 + 9.6 = 651.625 px
+        Hộp 2 (border-box): chiều rộng thực tế =  552.425 + 40  + 9.6 = 602.025 px
+        Giải thích sự khác biệt:
+        Đây là chế độ mặc định của trình duyệt.
+        Kích thước thực tế = width (trong code) + padding + border.
+        Hiện tượng: Hộp luôn to hơn số bạn ghi trong code vì bị padding và border đắp thêm vào bên ngoài.
+
+
+
+        10 CSS RULES (từ thấp đến cao theo specificity)
+
+        #	Selector	        Specificity	Color
+        1	p	                 (0,0,1)	🔴 Red
+        2	.text	             (0,1,0)	🔵 Blue
+        3	.highlight      	 (0,1,0)	🟢 Green
+        4	p.text	             (0,1,1)	🟠 Orange
+        5	.text.highlight	     (0,2,0)	🟣 Purple
+        6	p.text.highlight	 (0,2,1)	🩷 Pink
+        7	p[class~="text"]	 0,1,1)	    🟫 Brown
+        8	p:first-child	     (0,1,1)	🟡 Yellow
+        9	#demo.text	         (1,1,1)	🔷 Cyan
+        10	#demo	             (1,0,0)	🔴 MAGENTA (THẮNG!)
+
+        PHẦN TỬ HIỂN THỊ MÀU GÌ?
+
+        Kết quả: MAGENTA** 🔴
+
+        Tại sao
+
+        Specificity từ thấp đến cao:
+        (0,0,1) < (0,1,0) < (0,1,1) < (0,2,0) < (0,2,1) < (1,1,1) < (1,0,0)
+        Red     Blue    Orange   Purple   Pink    Cyan   MAGENTA (THẮNG!)`
+
+        Quy tắc:
+        - So sánh ID đầu tiên: Rule 10 có ID = 1, tất cả khác = 0
+        - ID thắng hết!→ Rule 10 (`#demo`) là champion
+
+        THỰC NGHIỆM: THAY ĐỔI THỨ TỰ
+
+        Câu hỏi
+        > Nếu chúng ta di chuyển `#demo { color: #c2185b; }` lên đầu file CSS, kết quả có đổi không?
+
+        Trả lời: KHÔNG ĐỔI! ✅
+
+        Lý do:
+
+        CSS Cascade Rule:"Later rules override earlier rules" CHỈ  khi specificity BẰNG NHAU
+

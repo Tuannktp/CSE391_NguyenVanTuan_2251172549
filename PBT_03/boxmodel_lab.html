@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Lab - Content-Box vs Border-Box</title>
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+<body>
+    <h1>🔬 BOX MODEL LAB</h1>
+    
+    <!-- ========== PHẦN 1: CONTENT-BOX VS BORDER-BOX ========== -->
+    <section class="part1">
+        <h2>Phần 1: Content-Box vs Border-Box</h2>
+        <p>Mỗi hộp có: width: 300px, padding: 20px, border: 5px solid</p>
+        
+        <div class="boxes-container">
+            <div class="box box-content-box">
+                <h3>Hộp 1: Content-Box</h3>
+                <p>box-sizing: content-box (mặc định)</p>
+                <p class="label">Chiều rộng = width ONLY (300px)</p>
+                <p class="inner-content">Nội dung bên trong</p>
+            </div>
+            
+            <div class="box box-border-box">
+                <h3>Hộp 2: Border-Box</h3>
+                <p>box-sizing: border-box</p>
+                <p class="label">Chiều rộng = width (300px) bao gồm padding + border</p>
+                <p class="inner-content">Nội dung bên trong</p>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h4>📋 Hướng dẫn đo đạc:</h4>
+            <ol>
+                <li>Mở DevTools (F12)</li>
+                <li>Chọn Element tab</li>
+                <li>Click vào mỗi hộp</li>
+                <li>Cuộn xuống tab Computed/Styles</li>
+                <li>Tìm phần Box Model diagram</li>
+                <li>Ghi lại chiều rộng thực tế của mỗi hộp</li>
+                <li>Chụp screenshot Box Model diagram</li>
+            </ol>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- ========== PHẦN 2: LAYOUT 3 CỘT ========== -->
+    <section class="part2">
+        <h2>Phần 2: Layout 3 Cột (Border-Box)</h2>
+        <p>Container: 1000px (với border-box, layout đúng)</p>
+        
+        <div class="container-with-border-box">
+            <aside class="sidebar left">
+                <h3>Cột Trái</h3>
+                <p>Sidebar</p>
+                <p>250px + padding 15px</p>
+            </aside>
+            
+            <main class="content">
+                <h3>Cột Giữa</h3>
+                <p>Main Content</p>
+                <p>500px + padding 20px</p>
+                <p>Đây là phần nội dung chính của trang web. Layout này sử dụng border-box nên tổng chiều rộng của 3 cột vừa khít 1000px.</p>
+            </main>
+            
+            <aside class="sidebar right">
+                <h3>Cột Phải</h3>
+                <p>Ads/Sidebar</p>
+                <p>250px + padding 15px</p>
+            </aside>
+        </div>
+
+        <p class="calculation">
+            <strong>Tính toán WITH border-box:</strong><br>
+            (250 + 15×2) + (500 + 20×2) + (250 + 15×2) = 280 + 540 + 280 = 1100px... 
+            <span style="color: red;">❌ Không vừa!</span> Cần điều chỉnh hoặc dùng display: flex
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- ========== PHẦN 2B: LAYOUT 3 CỘT (KHÔNG CÓ BORDER-BOX) ========== -->
+    <section class="part2b">
+        <h2>Phần 2B: Layout 3 Cột (KHÔNG Border-Box - để so sánh)</h2>
+        <p>Container: 1000px (KHÔNG border-box, layout sẽ vỡ)</p>
+        
+        <div class="container-without-border-box">
+            <aside class="sidebar-no-box left-no-box">
+                <h3>Cột Trái</h3>
+                <p>Sidebar</p>
+                <p>250px + padding 15px</p>
+            </aside>
+            
+            <main class="content-no-box">
+                <h3>Cột Giữa</h3>
+                <p>Main Content</p>
+                <p>500px + padding 20px</p>
+                <p>Không dùng border-box nên padding sẽ THÊM VÀO chiều rộng. Tổng > 1000px → layout vỡ!</p>
+            </main>
+            
+            <aside class="sidebar-no-box right-no-box">
+                <h3>Cột Phải</h3>
+                <p>Ads/Sidebar</p>
+                <p>250px + padding 15px</p>
+            </aside>
+        </div>
+
+        <p class="calculation">
+            <strong>Tính toán WITHOUT border-box:</strong><br>
+            (250 + 15×2) + (500 + 20×2) + (250 + 15×2) = 280 + 540 + 280 = 1100px<br>
+            <span style="color: red;">❌ TOTAL = 1100px > 1000px → CỘT PHỦ BỊ ĐẨYDÂY XUỐNG!</span>
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- ========== PHẦN 3: LAYOUT 3 CỘT (FLEXBOX - GIẢI PHÁP HIỆN ĐẠI) ========== -->
+    <section class="part3">
+        <h2>Phần 3: Layout 3 Cột (Flexbox - Giải pháp tốt hơn)</h2>
+        <p>Container: 1000px (dùng flexbox + border-box)</p>
+        
+        <div class="container-flexbox">
+            <aside class="sidebar-flex left-flex">
+                <h3>Cột Trái</h3>
+                <p>Sidebar - 250px</p>
+                <p>Flexible layout tự động căn chỉnh</p>
+            </aside>
+            
+            <main class="content-flex">
+                <h3>Cột Giữa</h3>
+                <p>Main Content - flex: 1</p>
+                <p>Flexbox tự động chia khoảng trắng đều. Không cần tính toán phức tạp!</p>
+            </main>
+            
+            <aside class="sidebar-flex right-flex">
+                <h3>Cột Phải</h3>
+                <p>Ads - 250px</p>
+                <p>Layout responsive và sạch</p>
+            </aside>
+        </div>
+
+        <p class="calculation">
+            <strong>Flexbox:</strong> 250 + flex:1 + 250 = tự động căn chỉnh (bản hiện đại hơn)
+        </p>
+    </section>
+
+</body>
+</html>

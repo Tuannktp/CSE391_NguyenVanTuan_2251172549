@@ -1,0 +1,299 @@
+/* ========== GLOBAL RESET ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #667eea;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 40px 0;
+}
+
+/* ========== PHẦN 1: CONTENT-BOX VS BORDER-BOX ========== */
+.part1 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.boxes-container {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+/* Hộp Content-Box */
+.box-content-box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #e74c3c;
+    background-color: #fff9f9;
+    box-sizing: content-box;
+    /* Lưu ý: content-box mặc định không cần ghi, nhưng ghi rõ để dễ hiểu */
+}
+
+/* Hộp Border-Box */
+.box-border-box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #2ecc71;
+    background-color: #f9fff9;
+    box-sizing: border-box;
+}
+
+/* Styling chung cho cả 2 hộp */
+.box {
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.box h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.box p {
+    margin: 8px 0;
+}
+
+.box .label {
+    font-weight: bold;
+    font-style: italic;
+    color: #555;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+.box .inner-content {
+    background-color: rgba(0,0,0,0.03);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* Instructions */
+.instructions {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-left: 4px solid #2563eb;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.instructions h4 {
+    color: #2563eb;
+    margin-top: 0;
+}
+
+.instructions ol {
+    margin: 10px 0;
+    padding-left: 30px;
+}
+
+.instructions li {
+    margin: 8px 0;
+}
+
+/* ========== PHẦN 2: LAYOUT 3 CỘT (BORDER-BOX) ========== */
+.part2 {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-with-border-box {
+    display: flex;
+    width: 1000px;
+    margin: 20px auto;
+    gap: 0;
+    box-sizing: border-box;
+}
+
+.container-with-border-box .sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.container-with-border-box .content {
+    width: 500px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.container-with-border-box h3 {
+    margin-top: 0;
+    color: #667eea;
+}
+
+.container-with-border-box p {
+    margin: 8px 0;
+}
+
+/* ========== PHẦN 2B: LAYOUT 3 CỘT (KHÔNG BORDER-BOX) ========== */
+.part2b {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-without-border-box {
+    display: flex;
+    width: 1000px;
+    margin: 20px auto;
+    gap: 0;
+    /* LƯU Ý: KHÔNG CÓ * { box-sizing: border-box; } cho container này */
+    background-color: #fff;
+    border: 2px solid #e74c3c;
+    overflow-x: auto;
+}
+
+.sidebar-no-box {
+    width: 250px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    /* Không ghi box-sizing: border-box */
+}
+
+.content-no-box {
+    width: 500px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    /* Không ghi box-sizing: border-box */
+}
+
+.sidebar-no-box, .content-no-box {
+    box-sizing: content-box;
+}
+
+.container-without-border-box h3 {
+    margin-top: 0;
+    color: #667eea;
+}
+
+.container-without-border-box p {
+    margin: 8px 0;
+}
+
+/* ========== PHẦN 3: LAYOUT FLEXBOX ========== */
+.part3 {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-flexbox {
+    display: flex;
+    max-width: 1000px;
+    margin: 20px auto;
+    gap: 10px;
+}
+
+.sidebar-flex {
+    width: 250px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.content-flex {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.container-flexbox h3 {
+    margin-top: 0;
+    color: #667eea;
+}
+
+.container-flexbox p {
+    margin: 8px 0;
+}
+
+/* ========== CALCULATION BOX ========== */
+.calculation {
+    background-color: #fffacd;
+    padding: 15px;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 800px) {
+    .boxes-container {
+        flex-direction: column;
+    }
+
+    .box-content-box,
+    .box-border-box {
+        width: 100%;
+    }
+
+    .container-with-border-box,
+    .container-without-border-box {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .container-with-border-box .sidebar,
+    .container-with-border-box .content,
+    .sidebar-no-box,
+    .content-no-box {
+        width: 100%;
+    }
+
+    .container-flexbox {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .sidebar-flex {
+        width: 100%;
+    }
+}

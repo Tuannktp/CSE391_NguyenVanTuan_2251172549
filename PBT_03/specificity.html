@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specificity Battle - CSS Selector Wars</title>
+    <link rel="stylesheet" href="specificity.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 SPECIFICITY BATTLE</h1>
+        <p>Phần tử dưới có 10 CSS rules khác nhau cùng target. Cái nào thắng?</p>
+
+        <section class="demo-section">
+            <h2>Đối tượng chiến đấu:</h2>
+            <p id="demo" class="text highlight">Hello World</p>
+            <p class="note">Màu cuối cùng của text sẽ là color của rule có specificity cao nhất</p>
+        </section>
+
+        <section class="explanation">
+            <h2>📊 10 CSS Rules (từ thấp đến cao):</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>CSS Rule</th>
+                        <th>Specificity (ID, Class, Element)</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><code>p { }</code></td>
+                        <td>(0, 0, 1)</td>
+                        <td style="background-color: #e74c3c; color: white;">Red</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><code>.text { }</code></td>
+                        <td>(0, 1, 0)</td>
+                        <td style="background-color: #3498db; color: white;">Blue</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><code>.highlight { }</code></td>
+                        <td>(0, 1, 0)</td>
+                        <td style="background-color: #2ecc71; color: white;">Green</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><code>p.text { }</code></td>
+                        <td>(0, 1, 1)</td>
+                        <td style="background-color: #f39c12; color: white;">Orange</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><code>.text.highlight { }</code></td>
+                        <td>(0, 2, 0)</td>
+                        <td style="background-color: #9b59b6; color: white;">Purple</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><code>p.text.highlight { }</code></td>
+                        <td>(0, 2, 1)</td>
+                        <td style="background-color: #e91e63; color: white;">Pink</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><code>p[class~="text"] { }</code></td>
+                        <td>(0, 1, 1)</td>
+                        <td style="background-color: #795548; color: white;">Brown</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><code>p:first-child { }</code></td>
+                        <td>(0, 1, 1)</td>
+                        <td style="background-color: #ffc107; color: black;">Yellow</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><code>#demo.text { }</code></td>
+                        <td>(1, 1, 1)</td>
+                        <td style="background-color: #00bcd4; color: white;">Cyan</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><code>#demo { }</code></td>
+                        <td>(1, 0, 0)</td>
+                        <td style="background-color: #c2185b; color: white;"><strong>Magenta (THẮNG!)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="instructions">
+            
+        </section>
+
+        <section class="experiment">
+            <h2>⚗️ Thí nghiệm:</h2>
+            <p><strong>Thay đổi thứ tự rules trong CSS file:</strong></p>
+            <ul>
+                <li>Di chuyển rule <code>#demo { color: magenta; }</code> lên đầu</li>
+                <li>Reload browser</li>
+                <li>Kết quả có đổi không?</li>
+                <li>Giải thích tại sao</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
