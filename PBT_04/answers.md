@@ -1,4 +1,5 @@
 Phần A:
+
     Position	Vẫn chiếm chỗ trong flow?	Tham chiếu vị trí	        Cuộn theo trang?	Use case
     static	    có                          Không dùng (mặc định flow)  Cuộn bình thường    Mặc định, giữ nguyên vị trí
     relative	có                          Chính nó (vị trí gốc)       Cuộn bình thường    Dịch nhẹ, làm mốc cho absolute
