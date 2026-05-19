@@ -1,0 +1,69 @@
+// 1. Import các partials theo thứ tự bắt buộc
+@import 'variables';
+@import 'mixins';
+@import 'components';
+
+// 2. Base Reset giản lược
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: $dark-color;
+    background: $light-color;
+}
+
+// 3. Giao diện trang cấu trúc Responsive của bạn đã được dọn sạch lỗi biến
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: $spacing-md;
+
+    @include respond-to('tablet') { flex-direction: row; }
+}
+
+// Thân bài chứa lưới sản phẩm
+.main-content {
+    flex: 1;
+}
+
+// Product Grid thay đổi số cột theo Breakpoint
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr; // Mobile: 1 cột
+    gap: $spacing-md;
+
+    @include respond-to('tablet') {
+        grid-template-columns: repeat(2, 1fr); // Tablet: 2 cột
+    }
+
+    @include respond-to('desktop') {
+        grid-template-columns: repeat(4, 1fr); // Desktop: 4 cột
+    }
+}
+
+// Sidebar ẩn ở Mobile, hiện ở Tablet trở lên
+.sidebar {
+    display: none;
+    @include respond-to('tablet') {
+        display: block;
+        min-width: 200px;
+        background: white;
+        padding: $spacing-md;
+    }
+}
+
+// Ads Bar chỉ xuất hiện trên màn hình Desktop lớn
+.ads-bar {
+    display: none;
+    @include respond-to('desktop') {
+        display: block;
+        min-width: 150px;
+        background: white;
+        padding: $spacing-md;
+    }
+}

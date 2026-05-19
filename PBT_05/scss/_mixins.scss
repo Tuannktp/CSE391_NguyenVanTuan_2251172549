@@ -1,0 +1,26 @@
+// 1. Responsive media queries (Mobile-First)
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'tablet' {
+        @media (min-width: $breakpoint-tablet) { @content; }
+    } @else if $breakpoint == 'desktop' {
+        @media (min-width: $breakpoint-desktop) { @content; }
+    }
+}
+
+// 2. Flexbox center
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 3. Card shadow với hiệu ứng hover
+@mixin card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+    }
+}

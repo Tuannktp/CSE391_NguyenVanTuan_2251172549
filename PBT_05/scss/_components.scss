@@ -1,0 +1,68 @@
+// NESTING 1: Header & Navigation
+header {
+    background: white;
+    padding: $spacing-md;
+    border-bottom: 1px solid #ddd;
+
+    .logo {
+        font-size: 18px;
+        font-weight: bold;
+        color: $primary-color;
+    }
+
+    .nav {
+        display: flex;
+        gap: $spacing-md;
+
+        a {
+            color: $dark-color;
+            text-decoration: none;
+
+            &:hover { color: $secondary-color; }
+        }
+    }
+}
+
+// NESTING 2: Buttons
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+
+    &-primary {
+        background: $primary-color;
+        color: white;
+        &:hover { background: darken($primary-color, 10%); }
+    }
+
+    &-secondary {
+        background: $secondary-color;
+        color: white;
+        &:hover { background: darken($secondary-color, 10%); }
+    }
+}
+
+// NESTING 3: Product Card
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    @include card-shadow; /* Dùng mixin shadow */
+
+    .product-image {
+        width: 100%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .product-info {
+        padding: $spacing-md;
+        
+        .price {
+            color: $primary-color;
+            font-weight: bold;
+        }
+    }
+}

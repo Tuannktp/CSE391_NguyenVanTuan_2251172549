@@ -1,0 +1,139 @@
+@charset "UTF-8";
+header {
+  background: white;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+header .logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF6B6B;
+}
+header .nav {
+  display: flex;
+  gap: 16px;
+}
+header .nav a {
+  color: #333;
+  text-decoration: none;
+}
+header .nav a:hover {
+  color: #4ECDC4;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #FF6B6B;
+  color: white;
+}
+.btn-primary:hover {
+  background: #ff3838;
+}
+.btn-secondary {
+  background: #4ECDC4;
+  color: white;
+}
+.btn-secondary:hover {
+  background: rgb(51.1013215859, 180.8986784141, 171.7004405286);
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+.product-card {
+  /* Dùng mixin shadow */
+}
+.product-card .product-image {
+  width: 100%;
+}
+.product-card .product-image img {
+  width: 100%;
+  height: auto;
+}
+.product-card .product-info {
+  padding: 16px;
+}
+.product-card .product-info .price {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  background: #f9f9f9;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  .main-wrapper {
+    flex-direction: row;
+  }
+}
+
+.main-content {
+  flex: 1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+    min-width: 200px;
+    background: white;
+    padding: 16px;
+  }
+}
+
+.ads-bar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .ads-bar {
+    display: block;
+    min-width: 150px;
+    background: white;
+    padding: 16px;
+  }
+}/*# sourceMappingURL=style.css.map */
