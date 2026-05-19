@@ -213,4 +213,285 @@ thumuc-duan/
     ├── _components.scss
     └── style.scss  (File tổng cấu trúc quản lý @import)
 
+PHẦN C — PHÂN TÍCH 
+
+Câu C1 (10đ) — Phân tích trang web thực
+
+**Trang chọn:** Shopee Vietnam (https://shopee.vn)
+
+Mobile (375px)
+- **Navigation:** Hamburger menu ☰ ở top-left
+- **Header:* Logo nhỏ, search bar, cart icon (all in 1 row, compact)
+- **Content:* Product grid **1 cột** (chiếm 100% width)
+-  **Font size:* 14px (nhỏ để vừa màn hình)
+- *Ẩn trên mobile:* Sidebar filter, banner quảng cáo dài, chat support widget
+
+Tablet (768px)
+- **Navigation:** Menu ngang với categories (Home, Live, Deals, v.v.)
+-**Header:** Logo lớn hơn, search bar rộng hơn
+- **Content:** Product grid **2 cột**
+- **Sidebar:** Filter hiển thị dạng dropdown/toggle
+- **Font size:** 16px (tăng so với mobile)
+
+Desktop (1440px)
+- **Navigation:** Full menu ngang + search suggestions
+- **Header:** Logo chuẩn, search bar full width, user account menu
+- **Layout:** 3 cột (sidebar filter + product grid 2 cột + ads bar)
+- **Content:** Product grid **3-4 cột** (column-width: auto)
+- **Font size:** 16px (chuẩn desktop)
+
+#### **Media Queries Shopee sử dụng (ví dụ):**
+```css
+/* Mobile-first default */
+.product-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+
+@media (min-width: 576px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+    .sidebar { display: block; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+    .product-grid { grid-template-columns: repeat(4, 1fr); }
+}
+```
+
+---
+
+### Câu C2 (10đ) — Thiết kế Responsive Strategy - Trang "Đặt bàn nhà hàng"
+
+*Wireframe Mobile (< 768px)*
+
+┌─────────────────────────────┐
+│  HEADER (hamburger ☰)       │  ← Menu toggle, logo nhỏ
+│  Logo | ☰ | 📞 0123456789  │
+├─────────────────────────────┤
+│                             │
+│    HERO IMAGE (100% w)      │
+│    (h=200px, cover)         │
+│                             │
+├─────────────────────────────┤
+│   📧 Đặt bàn nhà hàng       │
+│                             │
+│ [Form đặt bàn - full width] │
+│ ├─ Ngày ▼                   │
+│ ├─ Giờ ▼                    │
+│ ├─ Số người (spinner)       │
+│ ├─ Ghi chú (textarea)       │
+│ └─ [Đặt bàn] (full width)   │
+│                             │
+├─────────────────────────────┤
+│  🍕 MÓN ĂN YÊU THÍCH        │
+│  [Grid 2 cột]               │
+│  ┌─────────┬─────────┐      │
+│  │ Ảnh 1   │ Ảnh 2   │      │
+│  ├─────────┼─────────┤      │
+│  │ Ảnh 3   │ Ảnh 4   │      │
+│  ├─────────┼─────────┤      │
+│  │ Ảnh 5   │ Ảnh 6   │      │
+│  └─────────┴─────────┘      │
+│                             │
+├─────────────────────────────┤
+│  📍 Bản đồ (100% width)     │
+│  [Google Maps iframe]       │
+│  h=250px                    │
+│                             │
+├─────────────────────────────┤
+│           FOOTER             │
+│  © 2024 Nhà hàng ABC        │
+│  📞 0123456789              │
+└─────────────────────────────┘
+
+
+**Ẩn trên mobile:** Sidebar, banner lớn, chat widget
+
+**Wireframe Tablet (768px - 1023px)*
+
+┌──────────────────────────────────────┐
+│ HEADER (nav ngang)                   │
+│ Logo | Home | Menu | About | Contact │
+│                           📞 | 🛒   │
+├──────────────────────────────────────┤
+│                                      │
+│        HERO IMAGE (100% w)           │
+│        h=300px                       │
+│                                      │
+├──────────────────────────────────────┤
+│  📧 Đặt bàn nhà hàng                │
+│  [Form full-width]                   │
+├──────────────────────────────────────┤
+│  🍕 MÓN ĂN YÊU THÍCH                 │
+│  [Grid 3 cột]                        │
+│  ┌────────┬────────┬────────┐        │
+│  │ Ảnh 1  │ Ảnh 2  │ Ảnh 3  │        │
+│  ├────────┼────────┼────────┤        │
+│  │ Ảnh 4  │ Ảnh 5  │ Ảnh 6  │        │
+│  └────────┴────────┴────────┘        │
+│                                      │
+├──────────────────────────────────────┤
+│  📍 Bản đồ (100% width)              │
+│  [Google Maps iframe]                │
+│  h=300px                             │
+│                                      │
+├──────────────────────────────────────┤
+│              FOOTER                  │
+└──────────────────────────────────────┘
+
+
+ **Wireframe Desktop (≥ 1024px)*
+```
+┌──────────────────────────────────────────────────────────┐
+│ HEADER (full nav + search)                               │
+│ Logo | Home | Menu | About | Contact | Search | Account │
+├──────────┬───────────────────────────────────────────────┤
+│          │                                               │
+│  SIDEBAR │              HERO IMAGE                       │
+│  (filters)│              (2/3 width)                      │
+│          │                                               │
+├──────────┴───────────────────────────────────────────────┤
+│                                                          │
+│  📧 Đặt bàn nhà hàng [left: 200px sidebar]              │
+│  ┌────────────────────────────────────────────────────┐ │
+│  │ Ngày ▼        │ Giờ ▼        │ Số người │ Ghi chú │ │
+│  │               │              │          │         │ │
+│  └────────────────────────────────────────────────────┘ │
+│                                                          │
+│  🍕 MÓN ĂN YÊU THÍCH                                     │
+│  [Grid 4 cột]                                            │
+│  ┌────────┬────────┬────────┬────────┐                   │
+│  │ Ảnh 1  │ Ảnh 2  │ Ảnh 3  │ Ảnh 4  │                   │
+│  ├────────┼────────┼────────┼────────┤                   │
+│  │ Ảnh 5  │ Ảnh 6  │        │        │                   │
+│  └────────┴────────┴────────┴────────┘                   │
+│                                                          │
+│  📍 Bản đồ (100% width)                                  │
+│  [Google Maps iframe]                                    │
+│  h=400px                                                 │
+│                                                          │
+├──────────────────────────────────────────────────────────┤
+│                      FOOTER                              │
+│  © 2024 | About | Contact | Terms | Privacy              │
+└──────────────────────────────────────────────────────────┘
+```
+
+ **CSS Skeleton (Mobile-First, Grid-based)**
+
+```css
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; }
+
+/* Header */
+header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+nav { display: none; } /* Hidden on mobile */
+.hamburger { display: block; }
+
+/* Hero */
+.hero {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Form */
+.booking-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form button { background: #e74c3c; color: white; cursor: pointer; }
+
+/* Product Grid */
+.dish-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 20px;
+}
+
+.dish-grid img { width: 100%; height: auto; border-radius: 4px; }
+
+/* Maps */
+.maps-container { width: 100%; height: 250px; padding: 20px 0; }
+.maps-container iframe { width: 100%; height: 100%; border: none; }
+
+/* Footer */
+footer { text-align: center; padding: 20px; background: #333; color: #fff; font-size: 12px; }
+
+/* ========== TABLET (768px) ========== */
+@media (min-width: 768px) {
+    header { padding: 16px 24px; }
+    nav { display: flex; gap: 24px; }
+    .hamburger { display: none; }
+    
+    .hero { height: 300px; }
+    
+    .booking-form {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    form button { grid-column: 1 / -1; }
+    
+    .dish-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 32px; }
+    
+    .maps-container { height: 300px; }
+}
+
+/* ========== DESKTOP (1024px) ========== */
+@media (min-width: 1024px) {
+    body { display: grid; grid-template-columns: 200px 1fr; }
+    
+    aside.sidebar { 
+        grid-row: 1 / -1;
+        background: #f9f9f9;
+        padding: 20px;
+        border-right: 1px solid #eee;
+    }
+    
+    main { grid-column: 2; }
+    
+    header { padding: 20px 32px; }
+    
+    .hero { height: 400px; }
+    
+    .booking-form {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1000px;
+    }
+    
+    form button { grid-column: 4; }
+    
+    .dish-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 40px; }
+    
+    .maps-container { height: 400px; padding: 40px 0; }
+}
+
 
