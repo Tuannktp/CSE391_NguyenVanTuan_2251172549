@@ -3,254 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Product Page - Mobile First</title>
+    <title>Trang Sản Phẩm Responsive</title>
     <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
-    <!-- HEADER -->
+
     <header class="header">
-        <div class="header-container">
-            <div class="logo">🛍️ ShopHub</div>
-            <input type="checkbox" id="hamburger" class="hamburger-checkbox" hidden>
-            <label for="hamburger" class="hamburger-menu">☰</label>
-            <nav class="nav">
-                <a href="#home">Trang chủ</a>
-                <a href="#products">Sản phẩm</a>
-                <a href="#about">Về chúng tôi</a>
-                <a href="#contact">Liên hệ</a>
-            </nav>
-            <div class="header-icons">
-                <span class="icon">🔍</span>
-                <span class="icon">🛒 (0)</span>
-                <span class="icon">👤</span>
-            </div>
-        </div>
+        <div class="logo">MyStore</div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        
+        <nav class="nav-menu" id="navMenu">
+            <a href="#" class="active">Sản phẩm</a>
+            <a href="#">Tin tức</a>
+            <a href="#">Liên hệ</a>
+        </nav>
     </header>
 
-    <!-- MAIN CONTAINER -->
-    <div class="main-wrapper">
-        <!-- SIDEBAR (Hidden on mobile) -->
+    <div class="main-layout">
+        
         <aside class="sidebar">
-            <h3>🔍 Bộ lọc</h3>
-            <div class="filter-group">
-                <label>
-                    <input type="checkbox"> Đang khuyến mãi
-                </label>
-                <label>
-                    <input type="checkbox"> Hàng mới
-                </label>
-            </div>
-            
-            <h4>Khoảng giá</h4>
-            <select class="filter-select">
-                <option>Tất cả</option>
-                <option>Dưới 100.000đ</option>
-                <option>100.000 - 500.000đ</option>
-                <option>500.000 - 1.000.000đ</option>
-                <option>Trên 1.000.000đ</option>
+            <span class="sidebar-title">Bộ lọc:</span>
+            <select class="filter-dropdown">
+                <option value="all">Tất cả sản phẩm</option>
+                <option value="sách">Sách</option>
+                <option value="phụ kiện máy tính">Phụ kiện máy tính</option>
             </select>
-
-            <h4>Thương hiệu</h4>
-            <div class="filter-group">
-                <label><input type="checkbox"> Brand A</label>
-                <label><input type="checkbox"> Brand B</label>
-                <label><input type="checkbox"> Brand C</label>
-            </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
-            <!-- PRODUCT GRID -->
-            <section class="products-section">
-                <h2>📦 Sản phẩm nổi bật</h2>
-                <div class="product-grid">
-                    <!-- Product Card 1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/FF6B6B/FFFFFF?text=Product+1" alt="Product 1">
-                            <span class="badge">-20%</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 1 - Chất lượng cao</h3>
-                            <p class="price">
-                                <span class="old-price">500.000đ</span>
-                                <span class="new-price">400.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐⭐ (120 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/4ECDC4/FFFFFF?text=Product+2" alt="Product 2">
-                            <span class="badge">-15%</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 2 - Bán chạy</h3>
-                            <p class="price">
-                                <span class="old-price">300.000đ</span>
-                                <span class="new-price">255.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐ (85 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/FFE66D/FFFFFF?text=Product+3" alt="Product 3">
-                            <span class="badge">Mới</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 3 - Hàng mới về</h3>
-                            <p class="price">
-                                <span class="new-price">350.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐⭐ (45 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/95E1D3/FFFFFF?text=Product+4" alt="Product 4">
-                            <span class="badge">-25%</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 4 - Giá rẻ</h3>
-                            <p class="price">
-                                <span class="old-price">200.000đ</span>
-                                <span class="new-price">150.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐ (32 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/F38181/FFFFFF?text=Product+5" alt="Product 5">
-                            <span class="badge">Hot</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 5 - Xu hướng</h3>
-                            <p class="price">
-                                <span class="new-price">450.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐⭐ (200 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/AA96DA/FFFFFF?text=Product+6" alt="Product 6">
-                            <span class="badge">-10%</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 6 - Giá tốt</h3>
-                            <p class="price">
-                                <span class="old-price">280.000đ</span>
-                                <span class="new-price">252.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐ (68 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 7 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/FCBAD3/FFFFFF?text=Product+7" alt="Product 7">
-                            <span class="badge">-18%</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 7 - Bộ sưu tập</h3>
-                            <p class="price">
-                                <span class="old-price">600.000đ</span>
-                                <span class="new-price">492.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐⭐ (156 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 8 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://via.placeholder.com/200x200/A8E6CF/FFFFFF?text=Product+8" alt="Product 8">
-                            <span class="badge">Độc quyền</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Sản phẩm 8 - Độc lạ</h3>
-                            <p class="price">
-                                <span class="new-price">380.000đ</span>
-                            </p>
-                            <div class="rating">⭐⭐⭐⭐ (92 đánh giá)</div>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
+        <main class="product-grid">
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/c2/70/32/99e77437eec46c061f07b04ac7fdc567.jpg.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Sách Người Ăn Chay</h4>
+                    <p class="price">115.000</p>
                 </div>
-            </section>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/2d/ff/55/b91db9a3ea04341b95b9c0d9d2b45c30.jpg.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Sách Cây Brooklyn Xanh Biếc</h4>
+                    <p class="price">187.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/fd/ab/bb/6967b55dc9219718e0fe9d1dfee610d2.jpg.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Bàn phím game có dây Logitech G213 Prodigy RGB Lightsync</h4>
+                    <p class="price">910.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/70/8b/bd/446b7f73392c3f8c5673397ae933aa00.png.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Sữa Tắm Cao Cấp Cho Nam Romano Vip4</h4>
+                    <p class="price">130.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/e9/75/4d/a8e4e0e78bac8fe4d1cfdaf0e12ba959.png.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Thùng Sữa Đậu Nành Vinasoy Famigo Đậu Đỏ Nếp Cẩm (200ml x 36 Hộp)</h4>
+                    <p class="price">181.900</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/f9/87/ca/9ba50185a81bfffaa7d7e6783e138128.jpg.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Sách Sức Mạnh Của Toàn Tâm Toàn Ý</h4>
+                    <p class="price">97.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/97/cf/01/62689946778c1d318e3119c50723fe8a.jpg.webp  " alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Sách MBA Bằng Hình - The Usual MBA</h4>
+                    <p class="price">149.300</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://salt.tikicdn.com/cache/750x750/ts/product/54/0f/6c/dc35ce642885bf5827887948722df7ee.jpg.webp" alt="Sản phẩm">
+                <div class="card-info">
+                    <h4>Kinh Dịch Trọn Bộ (Tái Bản 2024)</h4>
+                    <p class="price">172.000</p>
+                </div>
+            </div>
         </main>
 
-        <!-- ADS BAR (Hidden on mobile/tablet) -->
         <aside class="ads-bar">
-            <h3>📢 Quảng cáo</h3>
-            <div class="ad-item">
-                <img src="https://via.placeholder.com/150x300/FFB6C1/FFFFFF?text=Ad+1" alt="Advertisement 1">
-            </div>
-            <div class="ad-item">
-                <img src="https://via.placeholder.com/150x300/87CEEB/FFFFFF?text=Ad+2" alt="Advertisement 2">
-            </div>
+            <div class="ads-box">ADS BAR</div>
         </aside>
+
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Về ShopHub</h4>
-                <ul>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Tuyển dụng</a></li>
-                    <li><a href="#">Báo chí</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Hỗ trợ</h4>
-                <ul>
-                    <li><a href="#">Trung tâm hỗ trợ</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Chính sách</h4>
-                <ul>
-                    <li><a href="#">Điều khoản</a></li>
-                    <li><a href="#">Bảo mật</a></li>
-                    <li><a href="#">Quy định</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Kết nối</h4>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 ShopHub. All rights reserved.</p>
-        </div>
+        FOOTER
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

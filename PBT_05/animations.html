@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations & Transitions</title>
+    <link rel="stylesheet" href="animations.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎬 CSS Animations & Transitions Demo</h1>
+
+        <!-- 1. CARD HOVER EFFECT -->
+        <section class="section">
+            <h2>1️⃣ Card Hover Effect (translateY + Box Shadow)</h2>
+            <div class="demo-area">
+                <div class="card">
+                    <img src="https://salt.tikicdn.com/cache/280x280/ts/product/d5/45/a7/90fb8bad0a08b4fe04bb2a4d26e0023b.png.webp"
+                        alt="Card Image">
+                    <h3>Hover Effect Card</h3>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BUTTON HOVER EFFECT -->
+        <section class="section">
+            <h2>2️⃣ Button Hover (Color + Scale)</h2>
+            <div class="demo-area">
+                <button class="btn btn-primary">Mua ngay</button>
+                <button class="btn btn-secondary">Chi tiết</button>
+                <button class="btn btn-success">Thêm giỏ</button>
+            </div>
+
+        </section>
+
+        <!-- 3. IMAGE ZOOM EFFECT -->
+        <section class="section">
+            <h2>3️⃣ Image Zoom on Hover</h2>
+            <div class="demo-area">
+                <div class="image-zoom-container">
+                    <img src="https://salt.tikicdn.com/cache/750x750/ts/product/04/2f/b8/3f5d44f8039e09dafe21eb53ef8617c6.png.webp"
+                        alt="Zoom Image">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 4. LOADING SPINNER -->
+        <section class="section">
+            <h2>4️⃣ Loading Spinner (@keyframes spin)</h2>
+            <div class="demo-area">
+                <div class="spinner"></div>
+                <p style="margin-top: 20px;">Spinner xoay vòng liên tục</p>
+            </div>
+
+        </section>
+
+        <!-- 5. FADE-IN ON SCROLL (Simulated with animation) -->
+        <section class="section">
+            <h2>5️⃣ Fade-In Animation (CSS Only)</h2>
+            <div class="demo-area">
+                <div class="fade-in-box">
+                    <h3>Box xuất hiện khi tải trang</h3>
+                    <p>Từ opacity 0 + translateY(20px) → opacity 1 + translateY(0)</p>
+                    <p>Animation: fadeIn 1s ease-out forwards</p>
+                </div>
+                <div class="fade-in-box fade-in-delay-1">
+                    <p>Box 1 - Delay: 0.2s</p>
+                </div>
+                <div class="fade-in-box fade-in-delay-2">
+                    <p>Box 2 - Delay: 0.4s</p>
+                </div>
+                <div class="fade-in-box fade-in-delay-3">
+                    <p>Box 3 - Delay: 0.6s</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BONUS: Multiple Effects Combined -->
+        <section class="section">
+            <h2>🎨 Bonus: Product Card (Tất cả hiệu ứng kết hợp)</h2>
+            <div class="demo-area">
+                <div class="product-combo-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://salt.tikicdn.com/cache/750x750/ts/product/3f/22/b6/695eac719616fec0d039d774f1cf531c.jpg.webp"
+                            alt="Premium Product">
+                    </div>
+                    <div class="product-details">
+                        <h3>Premium Product</h3>
+                        <p class="price">₫ 899.000</p>
+                        <p class="description">Sản phẩm chất lượng cao với nhiều tính năng</p>
+                        <button class="btn btn-combo">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+            <p class="info">Card này kết hợp: hover effect + image zoom + button scale + shadow</p>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="section">
+            <h2>🔄 Interactive Demo: Click để chạy animation</h2>
+            <div class="demo-area">
+                <button class="btn btn-trigger" onclick="triggerAnimation()">Chạy Animation</button>
+                <div class="demo-box-animation" id="demoBox">
+                    <p>ANIMATION</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function triggerAnimation() {
+            const box = document.getElementById('demoBox');
+            // Remove animation class to reset
+            box.classList.remove('run-animation');
+
+            // Trigger reflow to restart animation
+            void box.offsetWidth;
+
+            // Add animation class
+            box.classList.add('run-animation');
+        }
+    </script>
+</body>
+
+</html>
