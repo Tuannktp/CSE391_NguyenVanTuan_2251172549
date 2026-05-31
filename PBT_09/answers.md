@@ -71,7 +71,7 @@ Phần A:
         const userInput = document.querySelector("#search").value;
         document.querySelector("#result").textContent = userInput;
         Hoặc nếu cần chèn HTML nhưng vẫn muốn an toàn, phải sanitize đầu vào trước khi gán innerHTML.
-        
+
     Câu A3:
 
         Khi click vào button thì thứ tự log là:
@@ -82,3 +82,34 @@ Phần A:
         Nếu uncomment e.stopPropagation(), output chỉ còn
         BUTTON
         Bởi vì stopPropagation() dừng quá trình bubbling, nên #inner và #outer sẽ không nhận được sự kiện click nữa.
+
+
+Phần C:
+    Câu C1:
+
+        Sửa lỗi (ít nhất 7)
+        addEventListener("onclick", ...) phải là "click".
+        countDisplay = count; gán sai biến DOM, phải cập nhật textContent.
+        historyList.innerHTML = null; sẽ chèn "null" vào HTML; nên dùng ''.
+        item.remove; không gọi hàm; phải là item.remove().
+        localStorage.getItem("count") trả về chuỗi hoặc null; cần parse số và fallback.
+        Restore history bằng innerHTML thì mất event listener trên li.
+        deleteHistory(this) dùng this trong callback có thể gây hiểu nhầm; dùng biến tham chiếu rõ ràng hơn.
+        (Thêm) innerHTML cho count nên dùng textContent để tránh lỗi.
+
+    Câu C2:
+
+        Vì sao bind event lên 1000 element riêng lẻ là BAD PRACTICE?
+        Mỗi element sẽ nhận một function handler riêng, tức là tạo 1000 listeners. Điều này tốn bộ nhớ, tốn thời gian khi khởi tạo và khi remove.
+        Nếu bạn cần thay đổi hoặc gỡ bỏ event, phải lặp lại từng element, dễ lỗi và chậm.
+        Khi DOM lớn, nhiều listener còn làm chậm trình duyệt vì mỗi lần event xảy ra phải check nhiều handler.
+        Event Delegation giải quyết thế nào?
+
+        Thay vì gắn listener vào từng item, ta gắn một listener lên parent chung.
+        Khi click vào một item, event sẽ bubble lên parent. Parent kiểm tra event.target hoặc event.target.closest(...) để biết item nào bị click.
+        Như vậy chỉ cần 1 listener cho cả danh sách, tiết kiệm bộ nhớ, dễ quản lý, và vẫn xử lý được các item mới thêm động.
+
+        DocumentFragment để chỉ gây 1 lần reflow
+        Nếu bạn append từng item vào DOM thật, mỗi lần append có thể khiến browser tính toán lại layout/reflow nhiều lần.
+        DocumentFragment là container tạm trong bộ nhớ, không phải DOM tree hiển thị. Bạn tạo nhiều phần tử trong fragment rồi chỉ append fragment một lần vào DOM.
+        Khi append fragment, browser chỉ cần tính lại layout 1 lần cho toàn bộ nhóm, nên nhanh hơn nhiều so với append từng phần tử.
