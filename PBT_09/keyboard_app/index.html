@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard Navigation App</title>
+  <link rel="stylesheet" href="style3.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Keyboard Gallery</h1>
+      <p>Use keyboard arrows, numbers, Space and Ctrl+K.</p>
+    </header>
+
+    <section class="gallery-panel" aria-label="Image gallery">
+      <div class="viewer" tabindex="0" aria-label="Current image viewer">
+        <img id="currentImage" alt="Gallery image" />
+        <div class="caption" id="imageCaption"></div>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn" class="nav-button" aria-label="Previous image">← Previous</button>
+        <button id="playBtn" class="nav-button" aria-label="Play slideshow">Play</button>
+        <button id="nextBtn" class="nav-button" aria-label="Next image">Next →</button>
+      </div>
+
+      <div class="thumb-list" id="thumbList" aria-label="Image thumbnails"></div>
+    </section>
+  </div>
+
+  <div id="paletteOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="paletteTitle">
+    <div class="palette-card">
+      <div class="palette-header">
+        <h2 id="paletteTitle">Command Palette</h2>
+        <button id="closePalette" class="icon-button" aria-label="Close command palette">✕</button>
+      </div>
+      <input id="paletteInput" type="search" class="palette-input" placeholder="Type a command..." aria-label="Command input" />
+      <ul id="commandList" class="command-list" role="listbox" aria-label="Command suggestions"></ul>
+      <p class="palette-help">Press Enter to execute, Esc to close.</p>
+    </div>
+  </div>
+
+  <script src="app3.js"></script>
+</body>
+</html>

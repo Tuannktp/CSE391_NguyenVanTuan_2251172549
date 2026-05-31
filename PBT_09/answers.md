@@ -71,6 +71,7 @@ Phần A:
         const userInput = document.querySelector("#search").value;
         document.querySelector("#result").textContent = userInput;
         Hoặc nếu cần chèn HTML nhưng vẫn muốn an toàn, phải sanitize đầu vào trước khi gán innerHTML.
+        
     Câu A3:
 
         Khi click vào button thì thứ tự log là:

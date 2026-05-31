@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app-shell {
+  width: min(600px, 100%);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  padding: 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.app-header p {
+  margin: 8px 0 0;
+  color: #6b7280;
+}
+
+.todo-input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#todoInput {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+#addTodoBtn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.todo-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  gap: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn,
+.clear-btn {
+  border: 1px solid #d1d5db;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover,
+.clear-btn:hover {
+  background: #eff6ff;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.todo-label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-item.completed .todo-label {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.todo-remove {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.todo-remove:hover {
+  color: #ef4444;
+}
+
+.todo-footer {
+  display: flex;
+  justify-content: flex-end;
+  color: #4b5563;
+  margin-top: 14px;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+@media (max-width: 520px) {
+  .todo-input-wrapper {
+    flex-direction: column;
+  }
+
+  #addTodoBtn {
+    width: 100%;
+  }
+}
