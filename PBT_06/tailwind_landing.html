@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'media' }</script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+
+    <nav class="flex justify-between items-center p-4 border-b dark:border-gray-800">
+        <a href="#" class="font-bold text-xl dark:text-white">Logo</a>
+        <div class="hidden md:flex space-x-6">
+            <a href="#">Home</a><a href="#">Products</a><a href="#">Contact</a>
+        </div>
+        <label for="menu" class="md:hidden cursor-pointer">☰</label>
+        <input type="checkbox" id="menu" class="hidden peer">
+        <div class="hidden peer-checked:flex flex-col absolute top-14 left-0 w-full bg-white dark:bg-gray-900 p-4 shadow md:hidden">
+            <a href="#" class="py-1">Home</a><a href="#" class="py-1">Products</a><a href="#" class="py-1">Contact</a>
+        </div>
+    </nav>
+
+    <header class="bg-red-600 text-white py-20 text-center px-4">
+        <h1 class="text-4xl font-bold mb-4">Welcome to Our Website</h1>
+        <p class="mb-6 text-blue-100">Simple and clean landing page built with Tailwind CSS.</p>
+        <button class="bg-white text-blue-600 px-6 py-2 rounded shadow hover:bg-gray-100">Get Started</button>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-bold text-center mb-8 dark:text-white">Our Products</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow border dark:border-gray-700">
+                <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
+                <h3 class="font-bold dark:text-white">Product Name</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 my-2">Short description goes here.</p>
+                <span class="text-blue-600 dark:text-blue-400 font-bold">$99</span>
+            </div>
+            </div>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-950 py-10 border-t dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+            <div>
+                <h4 class="font-bold mb-2 dark:text-white">About Us</h4>
+                <p class="text-gray-500 dark:text-gray-400">Minimalist footer layout.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2 dark:text-white">Links</h4>
+                <p class="text-gray-500 dark:text-gray-400">Privacy | Terms</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2 dark:text-white">Contact</h4>
+                <p class="text-gray-500 dark:text-gray-400">support@example.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

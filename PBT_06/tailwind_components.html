@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Component Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
+
+    <nav class="bg-white border-b border-gray-200 fixed top-0 w-full z-40 h-16 flex items-center justify-between px-6">
+        <span class="text-xl font-bold text-orange-600">UI Kit</span>
+        <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium">Docs</a>
+            <a href="#" class="text-gray-600 hover:text-orange-600 px-3 py-2 rounded-md text-sm font-medium">Components</a>
+        </div>
+    </nav>
+
+    <aside class="w-64 bg-white border-r border-gray-200 fixed top-16 bottom-0 left-0 pt-5 px-4 overflow-y-auto hidden md:block">
+        <nav class="space-y-1">
+            <a href="#buttons" class="bg-gray-100 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">Buttons</a>
+            <a href="#cards" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">Cards</a>
+            <a href="#forms" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">Forms</a>
+            <a href="#alerts" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">Alerts</a>
+        </nav>
+    </aside>
+
+    <main class="md:pl-64 pt-20 p-8 max-w-7xl mx-auto space-y-16">
+
+        <section id="buttons" class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold border-b pb-2">Buttons</h2>
+            <div class="flex flex-wrap gap-4 items-center">
+                <button class="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded transition">Primary</button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded transition">Secondary</button>
+                <button class="border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded transition">Outline</button>
+                <button class="bg-orange-600 text-white font-medium py-2 px-4 rounded opacity-50 cursor-not-allowed" disabled>Disabled</button>
+                <button class="bg-orange-600 text-white font-medium py-2 px-4 rounded inline-flex items-center cursor-wait">
+                    <svg class="animate-spin h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Loading...
+                </button>
+            </div>
+            <div class="flex flex-wrap gap-4 items-center">
+                <button class="bg-orange-600 hover:bg-orange-700 text-white text-xs py-1.5 px-3 rounded">Small</button>
+                <button class="bg-orange-600 hover:bg-orange-700 text-white text-sm py-2 px-4 rounded">Medium</button>
+                <button class="bg-orange-600 hover:bg-orange-700 text-white text-base py-3 px-6 rounded">Large</button>
+            </div>
+        </section>
+
+        <section id="cards" class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold border-b pb-2">Cards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
+                    <div class="h-40 bg-gray-200"></div>
+                    <div class="p-4 space-y-2">
+                        <h3 class="font-bold text-lg">Product Title</h3>
+                        <p class="text-gray-500 text-sm">Brief product description.</p>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="font-bold text-lg">$49.00</span>
+                            <button class="bg-orange-600 hover:bg-orange-700 text-white text-xs py-1.5 px-3 rounded">Buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition p-6 text-center space-y-4">
+                    <div class="w-20 h-20 bg-gray-300 rounded-full mx-auto"></div>
+                    <div>
+                        <h3 class="font-bold text-lg">Alex Johnson</h3>
+                        <p class="text-gray-500 text-sm">Software Engineer</p>
+                    </div>
+                    <button class="border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs py-1.5 px-4 rounded-full w-full">Follow</button>
+                </div>
+                <div class="border-2 border-orange-600 rounded-lg shadow-sm p-6 text-center relative bg-orange-50/20">
+                    <span class="absolute top-0 right-0 bg-orange-600 text-white text-xs px-2.5 py-1 rounded-bl font-semibold">POPULAR</span>
+                    <h3 class="font-bold text-gray-500 uppercase tracking-wide text-xs">Pro Plan</h3>
+                    <div class="my-4"><span class="text-4xl font-extrabold">$29</span><span class="text-gray-500">/mo</span></div>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li>✓ 10 Projects</li><li>✓ Analytics Dashboards</li><li>✓ 24/7 Tech Support</li>
+                    </ul>
+                    <button class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 rounded">Choose Plan</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="forms" class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold border-b pb-2">Forms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" placeholder="John Doe" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                        <select class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition">
+                            <option>Vietnam</option><option>United States</option><option>Japan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                        <textarea rows="3" placeholder="Tell us about yourself..." class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"></textarea>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-medium text-gray-700 mb-2">Interests</span>
+                        <div class="flex flex-wrap gap-4">
+                            <label class="inline-flex items-center text-sm cursor-pointer"><input type="checkbox" class="rounded border-gray-300 text-orange-600 focus:ring-orange-500 w-4 h-4 mr-2">Design</label>
+                            <label class="inline-flex items-center text-sm cursor-pointer"><input type="checkbox" class="rounded border-gray-300 text-orange-600 focus:ring-orange-500 w-4 h-4 mr-2">Coding</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="alerts" class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Alerts</h2>
+            <div class="p-4 bg-green-50 border-l-4 border-green-500 text-green-700 rounded-r flex justify-between items-center shadow-sm">
+                <span class="text-sm font-medium">Success! Your profile has been updated.</span>
+                <button onclick="this.parentElement.remove()" class="text-green-500 hover:text-green-700 font-bold px-2">×</button>
+            </div>
+            <div class="p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-r flex justify-between items-center shadow-sm">
+                <span class="text-sm font-medium">Error! Something went wrong. Please try again.</span>
+                <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-bold px-2">×</button>
+            </div>
+            <div class="p-4 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-700 rounded-r flex justify-between items-center shadow-sm">
+                <span class="text-sm font-medium">Warning! Your subscription expires in 3 days.</span>
+                <button onclick="this.parentElement.remove()" class="text-yellow-500 hover:text-yellow-700 font-bold px-2">×</button>
+            </div>
+            <div class="p-4 bg-orange-50 border-l-4 border-orange-500 text-orange-700 rounded-r flex justify-between items-center shadow-sm">
+                <span class="text-sm font-medium">Info: A new system update is available.</span>
+                <button onclick="this.parentElement.remove()" class="text-orange-500 hover:text-orange-700 font-bold px-2">×</button>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
