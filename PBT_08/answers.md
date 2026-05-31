@@ -129,3 +129,23 @@ Phần A:
 
         8. Đảo ngược mảng (không mutate / không làm thay đổi mảng gốc nums)
         const daoNguoc = [...nums].reverse();
+    
+    Câu A4:
+        Dự đoán output:
+        -> iPhone 16 25990000 8 Titan
+        // ReferenceError: specs is not defined
+        name, price, ram, color đều được destructure ra giá trị riêng.
+        specs không tồn tại dưới dạng biến riêng vì chỉ destructure specs: { ram, color }; nên console.log(specs) sẽ lỗi ReferenceError.
+
+        ->// 23990000
+        true
+        25990000
+        updated là object mới.
+        price được ghi đè thành 23990000.
+        sale là true.
+        product.price không đổi vì spread tạo object mới ở cấp trên cùng.
+        
+        ->16
+        copy là shallow copy.
+        copy.specs và product.specs cùng trỏ tới cùng object nested.
+        Nên sửa copy.specs.ram cũng ảnh hưởng tới product.specs.ram.
