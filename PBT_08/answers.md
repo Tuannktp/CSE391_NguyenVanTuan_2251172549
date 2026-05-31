@@ -144,8 +144,87 @@ Phần A:
         price được ghi đè thành 23990000.
         sale là true.
         product.price không đổi vì spread tạo object mới ở cấp trên cùng.
-        
+
         ->16
         copy là shallow copy.
         copy.specs và product.specs cùng trỏ tới cùng object nested.
         Nên sửa copy.specs.ram cũng ảnh hưởng tới product.specs.ram.
+
+Phần C:
+   CauC1: Code viết lại:
+     
+        function processOrders(orders) {
+    return orders
+        .filter(order => order.status === "completed" && order.total > 100000)
+        .map(({ id, customer, total }) => ({
+        id,
+        customer,
+        total,
+        discount: total * 0.1,
+        finalTotal: total * 0.9
+        }))
+        .sort((a, b) => b.finalTotal - a.finalTotal);
+    }
+
+    CaauC2:
+
+        const miniArray = {
+        
+        map(arr, fn) - Biến đổi từng phần tử theo hàm fn
+        @param {Array} arr - Mảng đầu vào
+        @param {Function} fn - Hàm biến đổi (nhận element, index, array)
+        @returns {Array} - Mảng mới sau biến đổi
+        
+        map(arr, fn) {
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+            }
+            return result;
+        },
+
+        
+        filter(arr, fn) - Lọc phần tử thỏa điều kiện
+        @param {Array} arr - Mảng đầu vào
+        @param {Function} fn - Hàm kiểm tra (nhận element, index, array)
+        @returns {Array} - Mảng chỉ chứa phần tử thỏa fn
+        
+        filter(arr, fn) {
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+            }
+            return result;
+        },
+
+        
+        reduce(arr, fn, initialValue) - Tích tụ giá trị
+        @param {Array} arr - Mảng đầu vào
+        @param {Function} fn - Hàm tích tụ (nhận accumulator, currentValue, index, array)
+        @param {*} initialValue - Giá trị khởi tạo accumulator
+        @returns {*} - Kết quả tích tụ cuối cùng
+        
+        reduce(arr, fn, initialValue) {
+            let accumulator = initialValue;
+            for (let i = 0; i < arr.length; i++) {
+            accumulator = fn(accumulator, arr[i], i, arr);
+            }
+            return accumulator;
+        }
+        };
+
+        Test
+        console.log("--- Test miniArray.map ---");
+        console.log(miniArray.map([1, 2, 3], x => x * 2));
+        // Kỳ vọng: [2, 4, 6]
+
+        console.log("\n--- Test miniArray.filter ---");
+        console.log(miniArray.filter([1, 2, 3, 4], x => x > 2));
+        // Kỳ vọng: [3, 4]
+
+        console.log("\n--- Test miniArray.reduce ---");
+        console.log(miniArray.reduce([1, 2, 3, 4], (a, b) => a + b, 0));
+        // Kỳ vọng: 10
+
