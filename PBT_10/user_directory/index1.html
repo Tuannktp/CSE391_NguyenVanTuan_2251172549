@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Directory</h1>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by name or email...">
+            <button id="addUserBtn">Add User</button>
+        </div>
+
+        <div id="loadingDiv" class="loading">Loading...</div>
+        
+        <div id="usersContainer" class="users-table"></div>
+
+        <div id="errorDiv" class="error"></div>
+    </div>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <h2 id="formTitle">Add User</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <input type="text" id="userName" placeholder="Name *" required>
+                <input type="email" id="userEmail" placeholder="Email *" required>
+                <input type="text" id="userPhone" placeholder="Phone">
+                <input type="text" id="userCompany" placeholder="Company">
+                <button type="submit" id="submitBtn">Save</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app1.js"></script>
+</body>
+</html>

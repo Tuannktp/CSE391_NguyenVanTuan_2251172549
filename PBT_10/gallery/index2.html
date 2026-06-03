@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Infinite Scroll</title>
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+    <main class="page-shell">
+        <header class="page-header">
+            <h1>Gallery Infinite Scroll</h1>
+            <p>Load ảnh tự động khi scroll gần đáy. Click ảnh để xem ảnh lớn.</p>
+        </header>
+
+        <section class="gallery-grid" id="gallery"></section>
+        <div class="loading" id="loading">Đang tải thêm...</div>
+        <div id="load-trigger"></div>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+        <div class="lightbox-content">
+            <button class="close-button" id="closeLightbox" aria-label="Đóng">×</button>
+            <img id="lightboxImage" alt="Ảnh lớn" />
+            <p id="lightboxTitle"></p>
+        </div>
+    </div>
+
+    <script src="app2.js"></script>
+</body>
+</html>

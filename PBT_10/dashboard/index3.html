@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multi-API Dashboard</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Multi-API Dashboard</h1>
+      <div class="controls">
+        <button id="refreshBtn">Refresh All</button>
+        <div id="timeInfo" class="time-info"></div>
+      </div>
+    </header>
+
+    <div id="globalLoading" class="global-loading">Loading dashboards...</div>
+
+    <section class="grid" id="widgets">
+      <div class="widget" id="widget-0">
+        <h2>Users (JSONPlaceholder)</h2>
+        <div class="widget-body" id="body-0"></div>
+        <div class="widget-status" id="status-0"></div>
+      </div>
+
+      <div class="widget" id="widget-1">
+        <h2>Random Users</h2>
+        <div class="widget-body" id="body-1"></div>
+        <div class="widget-status" id="status-1"></div>
+      </div>
+
+      <div class="widget" id="widget-2">
+        <h2>Random Dogs</h2>
+        <div class="widget-body" id="body-2"></div>
+        <div class="widget-status" id="status-2"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app3.js"></script>
+</body>
+</html>
