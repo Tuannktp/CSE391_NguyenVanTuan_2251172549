@@ -243,3 +243,5 @@
         Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend:
         Rủi ro 1: SQL Injection & Code Injection
         Rủi ro 2: Bypass Quy Tắc Kinh Doanh & Gian Lận
+
+Link youtube PBT02:https://youtu.be/tUZz_4ouocA
