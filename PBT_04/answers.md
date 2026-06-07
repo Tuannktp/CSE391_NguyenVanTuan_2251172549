@@ -40,3 +40,5 @@ Phần A:
        3. Layout Blog	Grid	Phân chia khung lớn (Main/Sidebar) rõ ràng, chuẩn xác theo tỷ lệ.
        4. Footer 4 cột	Flexbox	Linh hoạt cho các cột có độ dài chữ khác nhau, tự co giãn theo nội dung.
        5. Card sản phẩm	Kết hợp	Grid để xếp các Card thành hàng; Flexbox bên trong để đẩy nút xuống đáy.
+
+Link youtube PBT04 : https://youtu.be/F5ANX4AQri4
