@@ -336,4 +336,5 @@ PHẦN A — KIỂM TRA ĐỌC HIỂU
         3."Sản phẩm B" (h2) có font-size = 20px và color = blue (Inheritance)
         4."Mô tả sản phẩm B" (p.highlight) có color = green (từ !important) 
 
+Link youtube PBT03 : https://youtu.be/aOXfvh2-OE0
 
